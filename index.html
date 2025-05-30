@@ -1,10 +1,10 @@
 <! DOCTYPE html><html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>THE BEST — Digital Market</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet"
+> <style>
 body {
 margin: 0;
 font-family: 'Montserrat', sans-serif;
@@ -18,8 +18,14 @@ text-align: center;
 border-bottom: 2px solid gold;
 }
 header img {
-max-width: 200px;
+max-height: 100px;
 margin-bottom: 10px;
+}
+header h1 {
+font-family: 'Cinzel', serif;
+font-size: 2.5rem;
+color: gold;
+margin: 0;
 }
 nav {
 margin-top: 10px;
@@ -52,28 +58,35 @@ font-weight: bold;
 display: inline-block;
 margin-top: 20px;
 }
+.categories {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
+}
 .category {
-background-color: #111;
-border: 1px solid gold;
-border-radius: 10px;
-margin: 20px auto;
+background: #111;
+border: 2px solid gold;
+border-radius: 12px;
 padding: 20px;
-max-width: 400px;
-text-align: left;
+width: 280px;
+cursor: pointer;
+transition: 0.3s;
+}
+.category:hover {
+background: #222;
 }
 .category h3 {
-color: gold;
+цвет: золото;
 margin-bottom: 10px;
-font-size: 1.2rem;
 }
-.category ul {
-list-style: none;
-padding: 0;
-margin: 0;
+.items {
+display: none;
+text-align: left;
+margin-top: 10px;
 }
-.category ul li {
-padding: 5px 0;
-border-bottom: 1px solid #333;
+.items p {
+margin: 5px 0;
 }
 footer {
 background: #111;
@@ -83,15 +96,90 @@ padding: 20px;
 border-top: 1px solid #333;
 }
 </style>
+<script>
+function toggleItems(id) {
+const element = document.getElementById(id);
+if (element.style.display === 'block') {
+element.style.display = 'none';
+} else {
+element.style.display = 'block';
+}
+}
+</script>
 </head>
 <body>
 <header>
-<img src="logo.png" alt="ЛУЧШИЙ логотип">
+<img src="logo.png" alt="THE BEST Logo">
+<h1>THE BEST</h1>
 <nav>
 <a href="#about">О нас</a>
-<a href="#catalog">Категории</a>
-<a href="#contact">Контакты</a>
+<a href="#categories">Категории</a>
+<a href="#contact">Контакты</ a>
 </nav>
 </header> <section id="about">
 <h2>Добро пожаловать в <span class="highlight">THE BEST</span></h2>
-<p>Люкс-маркетплейс #1 — ничего, кроме лучшего. Авто, недвижимость, часы, стиль, искусство и индивидуальный подход.</p>
+<p>Люкс-маркетплейс #1 — ничего, кроме лучшего. Авто, недвижимость, часы, стиль, искусство и индивидуальные услуги.</p>
+</section> <section id="categories">
+<h2>Категории</h2>
+<div class="categories">
+<div class="category" onclick="toggleItems('auto')">
+<h3> 🚗 Авто</h3>
+<div class="items" id="auto">
+<p>Ferrari SF90 Stradale</p>
+<p>Rolls-Royce Phantom</p>
+<p>Mercedes G63 AMG</p>
+<p>Lamborghini Urus</p>
+<p>Bentley Flying Spur</p>
+</div>
+</div>
+<div class="category" onclick="toggleItems('glasses')">
+<h3> 🕶 Очки</h3>
+<div class="items" id="glasses">
+<p>Louis Vuitton</p
+> <p>Cartier</p>
+<p>Chrome Hearts</p>
+<p>Gucci</p>
+<p>Dita</p>
+</div>
+</div>
+<div class="category" onclick="toggleItems('watches')">
+<h3> ⌚ Часы</h3>
+<div class="items" id="watches">
+<p>Rolex</p>
+<p>Richard Mille</p>
+<p>Patek Philippe</p>
+<p>Audemars Piguet</p>
+<p>Hublot</p>
+</div>
+</div>
+<div class="category" onclick="toggleItems('realestate')">
+<h3> 🏠 Недвижимость</h3>
+<div class="items" id="realestate">
+<p>Вилла в Дубае</p>
+<p>Пентхаус в Монако</p>
+<p>Особняк в Майами</p>
+<p>Дом на Бали</p>
+<p>Апартаменты в Астане</p>
+</div>
+</div>
+<div class="category" onclick="toggleItems('art')">
+<h3> 🎨 Искусство</h3>
+<div class="items" id="art">
+<p>Картины Banksy</p>
+<p>Скульптуры Jeff Koons</p>
+<p>NFT-коллекции</p>
+<p>Иконы и антиквариат</p>
+<p>Инвестиционные шедевры</p>
+</div>
+</div>
+</div>
+</section> <section id="contact">
+<h2>Контакты</h2><b1197> <p>WhatsApp: <a href="https://wa.me/77763911177" style="color:gold">+7 776 391 11 77</a></p>
+<p>Telegram: <a href="https://t.me/THEBEST_LV" style="color:gold">@THEBEST_LV</a></p>
+<p>Instagram: <a href="https://instagram.com/VITALIY_LYAPUNOV_" style="color:gold">@VITALIY_LYAPUNOV_</a></p>
+<p>YouTube: <a href="https://youtube.com/@thebestrusboss" style="color:gold">@thebestrusboss</a></p>
+</section> <footer>
+&copy; 2025 ГОД ЛУЧШИЙ. Все права защищены.
+</footer>
+</body>
+</html>
