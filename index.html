@@ -61,36 +61,20 @@ text-align: center;
 padding: 20px;
 border-top: 1px solid #333;
 }
-.category {
-background-color: #111;
-border: 2px сплошной #FFD700;
-border-radius: 10px;
-padding: 20px;
-margin: 20px auto;
-width: 90%;
-max-width: 500px;
-курсор: pointer;
-}
-.category h3 {
-margin-top: 0;
+.category-links a {
+display: inline-block;
+background-color: #222;
 color: #FFD700;
+margin: 10px;
+padding: 15px 30px;
+text-decoration: none;
+border-radius: 8px;
+transition: background-color 0.3s;
 }
-.items {
-display: none;
-text-align: left;
-margin-top: 15px;
-color: #ccc;
-}
-.items p {
-margin: 5px 0;
+.category-links a:hover {
+background-color: #333;
 }
 </style>
-<script>
-function toggleItems(id) {
-const el = document.getElementById(id);
-el.style.display = el.style.display === 'блок' ? 'none' : 'блокировать';
-}
-</script>
 </head>
 <body>
 <header>
@@ -99,73 +83,27 @@ el.style.display = el.style.display === 'блок' ? 'none' : 'блокиров�
 <a href="#about">О нас</a>
 <a href="#services">Услуги</a>
 <a href="#catalog">Каталог</a>
-<a href="#contact">Контакты<;/a>
+<a href="#contact">Контакты</a>
 </nav>
 </header> <section id="about">
 <h2>Добро пожаловать в <span class="highlight">THE BEST</span></h2>
-<p>Люкс-маркетплейс #1 — ничего, кроме лучшего. Авто, недвижимость, часы, стиль, искусство и индивидуальный подход.</p>
+<p>Люкс-маркетплейс #1 — кроме ничего лучшего. Авто, недвижимость, часы, стиль, искусство и индивидуальный подход.</p>
 </section> <section id="services">
 <h2>Услуги</h2>
 <p>Подбор, сопровождение сделок, VIP-консьерж, маркетинг, партнёрские продажи.</p>
 </section> <section id="catalog">
-<h2>Категории</h2><div class="category" onclick="toggleItems('cars')">
-<h3> 🚗 Авто</h3>
-<div class="items" id="cars">
-<p>Ferrari SF90</p>
-<p>Rolls-Royce Cullinan</p>
-<p>Mercedes G63 AMG</p>
-<p>Lamborghini Urus</p>
-<p>Bentley Flying Spur</p>
+<h2>Категории</h2>
+<div class="category-links">
+<a href="auto.html">  Авто</a>
+<a href="glasses.html">  Очки</a>
+<a href="watches.html">  Часы</a>
+<a href="realestate.html">  Недвижимость</a>
+<a href="art.html">  Искусство</a>
 </div>
-</div<>
-
-/div class="category" onclick="toggleItems(' очки')">
-<h3> 🕶 Очки</h3>
-<div class="items" id="glasses">
-<p>Cartier</p>
-<p>Louis Vuitton</p>
-<p>Chrome Hearts</p>
-<p>Dita</p>
-<p>Gucci</p>
-</div>
-</div>
-
-<div class="category" onclick="toggleItems(' часы')">
-<h3> ⌚ Часы</h3>
-<div class="items" id="watches">
-<p>Rolex</p>
-<p>Jacob & Co</p>
-<p>Richard Mille</p>
-<p>Patek Philippe</p>
-<p>Hublot</p>
-</div>
-</div>
-
-<div class="category" onclick=" toggleItems('realestate')">
-<h3> 🏠 Недвижимость</h3>
-<div class="items" id="realestate">
-<p>Виллы в Дубае</p>
-<p>Пентхаусы в Монако</p>
-<p>Особняки в Европе</p>
-<p>Элитные квартиры в Астане</p>
-<p>Дома на Бали</p>
-</div>
-</div>
-
-<div class="category" onclick="toggleItems('art')">
-<h3> 🎨 Искусство</h3>
-<div class="items" id="art">
-<p>Картины Banksy</p>
-<p>Скульптуры Jeff Koons</p>
-<p>NFT-токены от известных художников</p>
-<p>Ювелирные арт-объекты</p>
-<p>Инвестиционные шедевры</p>
-</div>
-</div>
-
+<a href="#contact" class="btn">Связаться с нами</a>
 </section> <section id="contact">
 <h2>Контакты</h2>
-<p>WhatsApp: <a href="https://wa.me/77763911177" style="color:gold">+7 776 391 11 77</a></p>
+<p>WhatsApp: <a href="https://wa.me/77763911177" style="color: gold">+7 776 391 11 77</a></p>
 <p>Telegram: <a href="https://t.me/THEBEST_LV" style="color:gold">@THEBEST_LV</a></p>
 <p>Instagram: <a href="https://instagram.com/VITALIY_LYAPUNOV_" style="color:gold">@VITALIY_LYAPUNOV_</a></p>
 <p>YouTube: <a href="https://youtube.com/@thebestrusboss" style="color:gold">@thebestrusboss</a></p>
