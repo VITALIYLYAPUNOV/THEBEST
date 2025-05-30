@@ -12,78 +12,86 @@ background-color: #000;
 color: #fff;
 }
 header {
+background: #111;
+padding: 20px;
 text-align: center;
-background-color: #000;
-padding: 40px 20px 0;
+border-bottom: 2px solid gold;
 }
-.logo {
-width: 200px;
-max-width: 90%;
+header img {
+max-width: 200px;
+margin-bottom: 10px;
 }
-h1 {
-font-family: 'Cinzel', serif
-; font-size: 2.5rem;
-color: gold;
+nav {
 margin-top: 10px;
 }
-.container {
-max-width: 1000px;
-margin: 0 auto;
-padding: 40px 20px;
+nav a {
+color: silver;
+margin: 0 15px;
+text-decoration: none;
+font-weight: bold;
 }
-h2 {
-выравнивание текста: по центру;
-размер шрифта: 2rem;
-цвет: золотой;
+section {
+padding: 40px 20px;
+text-align: center;
+}
+section h2 {
+color: gold;
+margin-bottom: 20px;
+font-size: 2rem;
+}
+.highlight {
+color: #FFD700;
+}
+.btn {
+background-color: gold;
+color: #000;
+padding: 10px 25px;
+text-decoration: none;
+border-radius: 25px;
+font-weight: bold;
+display: inline-block;
+margin-top: 20px;
 }
 .category {
-background: #111;
-border: 2px solid gold;
+background-color: #111;
+border: 1px solid gold;
 border-radius: 10px;
+margin: 20px auto;
 padding: 20px;
-margin: 15px 0;
-cursor: pointer;
-transition: 0.3s;
+max-width: 400px;
+text-align: left;
 }
-.category:hover {
-background: #222;
+.category h3 {
+color: gold;
+margin-bottom: 10px;
+font-size: 1.2rem;
 }
-.items {
-display: none;
-padding-top: 10px;
+.category ul {
+list-style: none;
+padding: 0;
+margin: 0;
 }
-.item {
-background: #222;
-margin: 8px 0;
-padding: 10px;
-border-radius: 8px;
-color: silver;
+.category ul li {
+padding: 5px 0;
+border-bottom: 1px solid #333;
 }
 footer {
 background: #111;
-color: #999;
+color: #777;
 text-align: center;
 padding: 20px;
+border-top: 1px solid #333;
 }
 </style>
 </head>
 <body>
 <header>
-<img class="logo" src="https://vitaliylyapunov.github.io/THEBEST/logo.png" alt="THE BEST" />
-<h1>THE BEST</h1>
-</header> <div class="container">
-<h2>Категории</h2><div class="category" onclick="toggleItems('auto')"> 🚗 Авто</div>
-<div class="items" id="auto">
-<div class="item">Ferrari SF90</div>
-<div class="item">Rolls-Royce Ghost</div>
-<div class="item">Mercedes G63 AMG</div>
-<div class="item">Lamborghini Urus</div>
-<div class="item">Bentley Flying Spur</div>
-</div>
-
-<div class="category" onclick="toggleItems('очки' )"> 🕶 Очки</div>
-<div class="items" id="glasses">
-<div class="item">Cartier Santos</div>
-<div class="item">Louis Vuitton Millionaire</div>
-<div class="item">Chrome Hearts</div>
-<div class="item">Gucci GG</div>
+<img src="logo.png" alt="ЛУЧШИЙ логотип">
+<nav>
+<a href="#about">О нас</a>
+<a href="#catalog">Категории</a>
+<a href="#contact">Контакты</a>
+</nav>
+</header> <section id="about">
+<h2>Добро пожаловать в <span class="highlight">THE BEST</span></h2>
+<p>Люкс-маркетплейс #1 — ничего, кроме лучшего. Авто, недвижимость, часы, стиль, искусство и индивидуальный подход.</p>
