@@ -1,185 +1,388 @@
-<! DOCTYPE html><html lang="ru">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE BEST — Digital Market</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet"
-> <style>
-body {
-margin: 0;
-font-family: 'Montserrat', sans-serif;
-background-color: #000;
-color: #fff;
-}
-header {
-background: #111;
-padding: 20px;
-text-align: center;
-border-bottom: 2px solid gold;
-}
-header img {
-max-height: 100px;
-margin-bottom: 10px;
-}
-header h1 {
-font-family: 'Cinzel', serif;
-font-size: 2.5rem;
-color: gold;
-margin: 0;
-}
-nav {
-margin-top: 10px;
-}
-nav a {
-color: silver;
-margin: 0 15px;
-text-decoration: none;
-font-weight: bold;
-}
-section {
-padding: 40px 20px;
-text-align: center;
-}
-section h2 {
-color: gold;
-margin-bottom: 20px;
-font-size: 2rem;
-}
-.highlight {
-color: #FFD700;
-}
-.btn {
-background-color: gold;
-color: #000;
-padding: 10px 25px;
-text-decoration: none;
-border-radius: 25px;
-font-weight: bold;
-display: inline-block;
-margin-top: 20px;
-}
-.categories {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-gap: 20px;
-}
-.category {
-background: #111;
-border: 2px solid gold;
-border-radius: 12px;
-padding: 20px;
-width: 280px;
-cursor: pointer;
-transition: 0.3s;
-}
-.category:hover {
-background: #222;
-}
-.category h3 {
-цвет: золото;
-margin-bottom: 10px;
-}
-.items {
-display: none;
-text-align: left;
-margin-top: 10px;
-}
-.items p {
-margin: 5px 0;
-}
-footer {
-background: #111;
-color: #777;
-text-align: center;
-padding: 20px;
-border-top: 1px solid #333;
-}
-</style>
-<script>
-function toggleItems(id) {
-const element = document.getElementById(id);
-if (element.style.display === 'block') {
-element.style.display = 'none';
-} else {
-element.style.display = 'block';
-}
-}
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE BEST — Digital Market</title>
+  <!-- Импорт шрифтов -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000;
+      color: #C0C0C0;
+    }
+    header {
+      background: #111;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid gold;
+      position: relative;
+    }
+    header img {
+      max-height: 100px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      color: gold;
+      margin: 0;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: silver;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    /* Основной баннер */
+    .banner {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .banner h2 {
+      color: gold;
+      margin-bottom: 10px;
+      font-size: 2rem;
+    }
+    .banner p {
+      font-size: 1.2rem;
+    }
+    /* Секция категорий */
+    #categories {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    #categories h2 {
+      color: gold;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .category {
+      background: #111;
+      border: 2px solid gold;
+      border-radius: 12px;
+      padding: 20px;
+      width: 280px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .category:hover {
+      background: #222;
+    }
+    .category h3 {
+      margin: 0;
+      color: gold;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .product-cards {
+      display: none;
+      margin-top: 15px;
+    }
+    .product-card {
+      background: #111;
+      border: 1px solid gold;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+      padding: 10px;
+      margin: 10px;
+      width: 260px;
+      display: inline-block;
+      vertical-align: top;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .product-card h4 {
+      margin: 10px 0 5px;
+      color: gold;
+    }
+    .product-card p {
+      font-size: 0.9rem;
+    }
+    .product-card button {
+      background-color: gold;
+      border: none;
+      color: #000;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+    .product-card button:hover {
+      background-color: #ffd700;
+    }
+    /* Контактная секция */
+    #contact {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    #contact h2 {
+      color: gold;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    #contact p {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+    #contact a {
+      color: gold;
+      text-decoration: none;
+    }
+    footer {
+      background: #111;
+      color: #777;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #333;
+    }
+    /* Стили для модальных окон */
+    .modal {
+      display: none; /* Скрыто по умолчанию */
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.8);
+    }
+    .modal-content {
+      background: #111;
+      margin: 10% auto;
+      padding: 20px;
+      border: 2px solid gold;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      color: silver;
+      position: relative;
+    }
+    .close {
+      color: gold;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+      color: #f1c40f;
+    }
+    .inquiry-form input, .inquiry-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 15px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background: #222;
+      color: silver;
+    }
+    .inquiry-form button {
+      background-color: gold;
+      border: none;
+      color: #000;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+    }
+    .inquiry-form button:hover {
+      background-color: #ffd700;
+    }
+  </style>
+  <script>
+    // Переключение отображения карточек товаров в категории
+    function toggleCategory(categoryId) {
+      var container = document.getElementById(categoryId);
+      if (container.style.display === "block") {
+        container.style.display = "none";
+      } else {
+        container.style.display = "block";
+      }
+    }
+    
+    // Открытие модального окна
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = "block";
+    }
+    
+    // Закрытие модального окна
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = "none";
+    }
+    
+    // Закрытие модального окна при клике вне его
+    window.onclick = function(event) {
+      var modals = document.getElementsByClassName("modal");
+      for (var i = 0; i < modals.length; i++) {
+        if (event.target == modals[i]) {
+          modals[i].style.display = "none";
+        }
+      }
+    }
+  </script>
 </head>
 <body>
-<header>
-<img src="logo.png" alt="THE BEST Logo">
-<h1>THE BEST</h1>
-<nav>
-<a href="#about">О нас</a>
-<a href="#categories">Категории</a>
-<a href="#contact">Контакты</ a>
-</nav>
-</header> <section id="about">
-<h2>Добро пожаловать в <span class="highlight">THE BEST</span></h2>
-<p>Люкс-маркетплейс #1 — ничего, кроме лучшего. Авто, недвижимость, часы, стиль, искусство и индивидуальные услуги.</p>
-</section> <section id="categories">
-<h2>Категории</h2>
-<div class="categories">
-<div class="category" onclick="toggleItems('auto')">
-<h3> 🚗 Авто</h3>
-<div class="items" id="auto">
-<p>Ferrari SF90 Stradale</p>
-<p>Rolls-Royce Phantom</p>
-<p>Mercedes G63 AMG</p>
-<p>Lamborghini Urus</p>
-<p>Bentley Flying Spur</p>
-</div>
-</div>
-<div class="category" onclick="toggleItems('glasses')">
-<h3> 🕶 Очки</h3>
-<div class="items" id="glasses">
-<p>Louis Vuitton</p
-> <p>Cartier</p>
-<p>Chrome Hearts</p>
-<p>Gucci</p>
-<p>Dita</p>
-</div>
-</div>
-<div class="category" onclick="toggleItems('watches')">
-<h3> ⌚ Часы</h3>
-<div class="items" id="watches">
-<p>Rolex</p>
-<p>Richard Mille</p>
-<p>Patek Philippe</p>
-<p>Audemars Piguet</p>
-<p>Hublot</p>
-</div>
-</div>
-<div class="category" onclick="toggleItems('realestate')">
-<h3> 🏠 Недвижимость</h3>
-<div class="items" id="realestate">
-<p>Вилла в Дубае</p>
-<p>Пентхаус в Монако</p>
-<p>Особняк в Майами</p>
-<p>Дом на Бали</p>
-<p>Апартаменты в Астане</p>
-</div>
-</div>
-<div class="category" onclick="toggleItems('art')">
-<h3> 🎨 Искусство</h3>
-<div class="items" id="art">
-<p>Картины Banksy</p>
-<p>Скульптуры Jeff Koons</p>
-<p>NFT-коллекции</p>
-<p>Иконы и антиквариат</p>
-<p>Инвестиционные шедевры</p>
-</div>
-</div>
-</div>
-</section> <section id="contact">
-<h2>Контакты</h2><b1197> <p>WhatsApp: <a href="https://wa.me/77763911177" style="color:gold">+7 776 391 11 77</a></p>
-<p>Telegram: <a href="https://t.me/THEBEST_LV" style="color:gold">@THEBEST_LV</a></p>
-<p>Instagram: <a href="https://instagram.com/VITALIY_LYAPUNOV_" style="color:gold">@VITALIY_LYAPUNOV_</a></p>
-<p>YouTube: <a href="https://youtube.com/@thebestrusboss" style="color:gold">@thebestrusboss</a></p>
-</section> <footer>
-&copy; 2025 ГОД ЛУЧШИЙ. Все права защищены.
-</footer>
+  <header>
+    <!-- Кликабельный логотип, открывающий информацию о проекте -->
+    <img src="logo.png" alt="THE BEST Logo" onclick="openModal('projectInfoModal')">
+    <h1>THE BEST</h1>
+    <nav>
+      <a href="#categories">Каталог</a>
+      <a href="#about">О проекте</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </header>
+
+  <!-- Баннер с слоганом -->
+  <section class="banner" id="about">
+    <h2>Ничего, кроме лучшего</h2>
+    <p>Добро пожаловать в THE BEST — Digital Marketplace #1</p>
+  </section>
+
+  <!-- Секция категорий -->
+  <section id="categories">
+    <h2>Категории</h2>
+    <div class="categories">
+      <!-- Премиальные автомобили -->
+      <div class="category" onclick="toggleCategory('autoProducts')">
+        <h3>Премиальные автомобили</h3>
+        <div class="product-cards" id="autoProducts">
+          <div class="product-card" onclick="openModal('inquiryModal')">
+            <img src="auto-sample.jpg" alt="Автомобиль">
+            <h4>Ferrari SF90 Stradale</h4>
+            <p>Изысканная технология и дизайн.</p>
+            <button>Оставить заявку</button>
+          </div>
+          <!-- Дополнительные карточки можно добавить здесь -->
+        </div>
+      </div>
+      
+      <!-- Элитная недвижимость -->
+      <div class="category" onclick="toggleCategory('realEstateProducts')">
+        <h3>Элитная недвижимость</h3>
+        <div class="product-cards" id="realEstateProducts">
+          <div class="product-card" onclick="openModal('inquiryModal')">
+            <img src="realestate-sample.jpg" alt="Недвижимость">
+            <h4>Пентхаус в Монако</h4>
+            <p>Современное жилье с видом на море.</p>
+            <button>Оставить заявку</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Фирменные часы и аксессуары -->
+      <div class="category" onclick="toggleCategory('watchesProducts')">
+        <h3>Фирменные часы и аксессуары</h3>
+        <div class="product-cards" id="watchesProducts">
+          <div class="product-card" onclick="openModal('inquiryModal')">
+            <img src="watches-sample.jpg" alt="Часы">
+            <h4>Rolex Oyster Perpetual</h4>
+            <p>Эталон стиля и точности.</p>
+            <button>Оставить заявку</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Брендовая одежда и парфюмерия -->
+      <div class="category" onclick="toggleCategory('fashionProducts')">
+        <h3>Брендовая одежда и парфюмерия</h3>
+        <div class="product-cards" id="fashionProducts">
+          <div class="product-card" onclick="openModal('inquiryModal')">
+            <img src="fashion-sample.jpg" alt="Одежда">
+            <h4>Коллекция сезона</h4>
+            <p>Современные тренды и первоклассное качество.</p>
+            <button>Оставить заявку</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- VIP-сервис и сопровождение -->
+      <div class="category" onclick="toggleCategory('vipProducts')">
+        <h3>VIP-сервис и сопровождение</h3>
+        <div class="product-cards" id="vipProducts">
+          <div class="product-card" onclick="openModal('inquiryModal')">
+            <img src="vip-sample.jpg" alt="Сопровождение">
+            <h4>Персональный менеджер</h4>
+            <p>Высокий уровень сервиса и заботы.</p>
+            <button>Оставить заявку</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контактная секция -->
+  <section id="contact">
+    <h2>Контакты</h2>
+    <p>WhatsApp: <a href="https://wa.me/77763911177" style="color:gold;">+7 776 391 11 77</a></p>
+    <p>Telegram: <a href="https://t.me/THEBEST_LV" style="color:gold;">@THEBEST_LV</a></p>
+    <p>Instagram: <a href="https://instagram.com/VITALIY_LYAPUNOV_" style="color:gold;">@VITALIY_LYAPUNOV_</a></p>
+    <p>YouTube: <a href="https://youtube.com/@thebestrusboss" style="color:gold;">@thebestrusboss</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 THE BEST. Все права защищены.
+  </footer>
+
+  <!-- Модальное окно с информацией о проекте -->
+  <div id="projectInfoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('projectInfoModal')">&times;</span>
+      <h2>О проекте THE BEST</h2>
+      <p>THE BEST — это уникальная цифровая платформа для презентации и продвижения товаров и услуг класса люкс. Мы объединяем лучшие предложения в следующих сферах:</p>
+      <ul>
+        <li>Премиальные автомобили</li>
+        <li>Элитная недвижимость</li>
+        <li>Фирменные часы и аксессуары</li>
+        <li>Брендовая одежда и парфюмерия</li>
+        <li>VIP-сервис и сопровождение</li>
+      </ul>
+      <p>Наша миссия — предлагать пользователям только высококачественные предложения и услуги, формируя доверие и обеспечивая высокий уровень сервиса.</p>
+    </div>
+  </div>
+
+  <!-- Модальное окно для формы заявки -->
+  <div id="inquiryModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('inquiryModal')">&times;</span>
+      <h2>Оставить заявку</h2>
+      <form class="inquiry-form">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="tel" name="phone" placeholder="Номер телефона" required>
+        <input type="email" name="email" placeholder="Email или социальная сеть" required>
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
