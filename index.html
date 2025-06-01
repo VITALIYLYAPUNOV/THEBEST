@@ -1,195 +1,218 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE BEST — Digital Market</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<style>
-body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #000;
-    color: #fff;
-}
-header {
-    background: #111;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 2px solid gold;
-}
-header img {
-    max-height: 100px;
-    margin-bottom: 10px;
-}
-header h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 2.5rem;
-    color: gold;
-    margin: 0;
-}
-nav {
-    margin-top: 10px;
-}
-nav a {
-    color: silver;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
-section {
-    padding: 40px 20px;
-    text-align: center;
-}
-section h2 {
-    color: gold;
-    margin-bottom: 20px;
-    font-size: 2rem;
-}
-.highlight {
-    color: #FFD700;
-}
-.btn {
-    background-color: gold;
-    color: #000;
-    padding: 10px 25px;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 20px;
-}
-.categories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-.category {
-    background: #111;
-    border: 2px solid gold;
-    border-radius: 12px;
-    padding: 20px;
-    width: 280px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.category:hover {
-    background: #222;
-}
-.category h3 {
-    color: gold;
-    margin-bottom: 10px;
-}
-.items {
-    display: none;
-    text-align: left;
-    margin-top: 10px;
-}
-.items p {
-    margin: 5px 0;
-}
-footer {
-    background: #111;
-    color: #777;
-    text-align: center;
-    padding: 20px;
-    border-top: 1px solid #333;
-}
-</style>
-<script>
-function toggleItems(id) {
-    const element = document.getElementById(id);
-    if (element.style.display === 'block') {
-        element.style.display = 'none';
-    } else {
-        element.style.display = 'block';
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE BEST — Digital Market</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000;
+      color: #fff;
     }
-}
-</script>
+    header {
+      background: #111;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid gold;
+      position: relative;
+    }
+    header img {
+      max-height: 100px;
+      margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in forwards;
+    }
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      margin: 0;
+      background: linear-gradient(45deg, #FFD700, #FFFACD);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0;
+      animation: slideIn 1.5s ease-in forwards;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: silver;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s ease-in-out;
+    }
+    nav a:hover {
+      color: gold;
+    }
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 2rem;
+      background: linear-gradient(45deg, #FFD700, #FFFACD);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+    .highlight {
+      color: #FFD700;
+    }
+    /* Стилизация категорий */
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .category {
+      background: #111;
+      border: 2px solid gold;
+      border-radius: 12px;
+      padding: 20px;
+      width: 280px;
+      transition: 0.3s;
+      margin-bottom: 15px;
+    }
+    .category:hover {
+      background: #222;
+      box-shadow: 0 0 15px gold;
+    }
+    .category h3 {
+      color: gold;
+      margin-bottom: 10px;
+    }
+    .items {
+      text-align: left;
+    }
+    .items p {
+      margin: 5px 0;
+      cursor: pointer;
+      transition: 0.3s;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    .items p:hover {
+      background: rgba(255, 215, 0, 0.2);
+    }
+    footer {
+      background: #111;
+      color: #777;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #333;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+  <script>
+    /**
+     * Функция открывает новое окно с именем файла (например, 'ferrari_sf90.html').
+     * Убедись, что соответствующие файлы существуют.
+     */
+    function openCategoryWindow(item) {
+      window.open(item + '.html', '_blank', 'width=800,height=600');
+    }
+  </script>
 </head>
 <body>
-<header>
+  <header>
     <img src="logo.png" alt="THE BEST Logo">
     <h1>THE BEST</h1>
     <nav>
-        <a href="#about">О нас</a>
-        <a href="#categories">Категории</a>
-        <a href="#contact">Контакты</a>
+      <a href="#about">О нас</a>
+      <a href="#categories">Категории</a>
+      <a href="#contact">Контакты</a>
     </nav>
-</header>
+  </header>
 
-<section id="about">
+  <section id="about">
     <h2>Добро пожаловать в <span class="highlight">THE BEST</span></h2>
     <p>Люкс-маркетплейс #1 — ничего, кроме лучшего. Авто, недвижимость, часы, стиль, искусство и индивидуальные услуги.</p>
-</section>
+  </section>
 
-<section id="categories">
+  <section id="categories">
     <h2>Категории</h2>
     <div class="categories">
-        <div class="category" onclick="toggleItems('auto')">
-            <h3>🚗 Авто</h3>
-            <div class="items" id="auto">
-                <p>Ferrari SF90 Stradale</p>
-                <p>Rolls-Royce Phantom</p>
-                <p>Mercedes G63 AMG</p>
-                <p>Lamborghini Urus</p>
-                <p>Bentley Flying Spur</p>
-            </div>
+      <!-- Категория Авто -->
+      <div class="category">
+        <h3>🚗 Авто</h3>
+        <div class="items">
+          <p onclick="openCategoryWindow('ferrari_sf90')">Ferrari SF90 Stradale</p>
+          <p onclick="openCategoryWindow('rolls_royce_phantom')">Rolls-Royce Phantom</p>
+          <p onclick="openCategoryWindow('mercedes_g63')">Mercedes G63 AMG</p>
+          <p onclick="openCategoryWindow('lamborghini_urus')">Lamborghini Urus</p>
+          <p onclick="openCategoryWindow('bentley_flying_spur')">Bentley Flying Spur</p>
         </div>
-        <div class="category" onclick="toggleItems('glasses')">
-            <h3>🕶 Очки</h3>
-            <div class="items" id="glasses">
-                <p>Louis Vuitton</p>
-                <p>Cartier</p>
-                <p>Chrome Hearts</p>
-                <p>Gucci</p>
-                <p>Dita</p>
-            </div>
+      </div>
+      <!-- Категория Очки -->
+      <div class="category">
+        <h3>🕶 Очки</h3>
+        <div class="items">
+          <p onclick="openCategoryWindow('louis_vuitton')">Louis Vuitton</p>
+          <p onclick="openCategoryWindow('cartier')">Cartier</p>
+          <p onclick="openCategoryWindow('chrome_hearts')">Chrome Hearts</p>
+          <p onclick="openCategoryWindow('gucci')">Gucci</p>
+          <p onclick="openCategoryWindow('dita')">Dita</p>
         </div>
-        <div class="category" onclick="toggleItems('watches')">
-            <h3>⌚ Часы</h3>
-            <div class="items" id="watches">
-                <p>Rolex</p>
-                <p>Richard Mille</p>
-                <p>Patek Philippe</p>
-                <p>Audemars Piguet</p>
-                <p>Hublot</p>
-            </div>
+      </div>
+      <!-- Категория Часы -->
+      <div class="category">
+        <h3>⌚ Часы</h3>
+        <div class="items">
+          <p onclick="openCategoryWindow('rolex')">Rolex</p>
+          <p onclick="openCategoryWindow('richard_mille')">Richard Mille</p>
+          <p onclick="openCategoryWindow('patek_philippe')">Patek Philippe</p>
+          <p onclick="openCategoryWindow('audemars_piguet')">Audemars Piguet</p>
+          <p onclick="openCategoryWindow('hublot')">Hublot</p>
         </div>
-        <div class="category" onclick="toggleItems('realestate')">
-            <h3>🏠 Недвижимость</h3>
-            <div class="items" id="realestate">
-                <p>Вилла в Дубае</p>
-                <p>Пентхаус в Монако</p>
-                <p>Особняк в Майами</p>
-                <p>Дом на Бали</p>
-                <p>Апартаменты в Астане</p>
-            </div>
+      </div>
+      <!-- Категория Недвижимость -->
+      <div class="category">
+        <h3>🏠 Недвижимость</h3>
+        <div class="items">
+          <p onclick="openCategoryWindow('dubai_villa')">Вилла в Дубае</p>
+          <p onclick="openCategoryWindow('monaco_penthouse')">Пентхаус в Монако</p>
+          <p onclick="openCategoryWindow('miami_mansion')">Особняк в Майами</p>
+          <p onclick="openCategoryWindow('bali_house')">Дом на Бали</p>
+          <p onclick="openCategoryWindow('astana_apartments')">Апартаменты в Астане</p>
         </div>
-        <div class="category" onclick="toggleItems('art')">
-            <h3>🎨 Искусство</h3>
-            <div class="items" id="art">
-                <p>Картины Banksy</p>
-                <p>Скульптуры Jeff Koons</p>
-                <p>NFT-коллекции</p>
-                <p>Иконы и антиквариат</p>
-                <p>Инвестиционные шедевры</p>
-            </div>
+      </div>
+      <!-- Категория Искусство -->
+      <div class="category">
+        <h3>🎨 Искусство</h3>
+        <div class="items">
+          <p onclick="openCategoryWindow('banksy_art')">Картины Banksy</p>
+          <p onclick="openCategoryWindow('jeff_koons')">Скульптуры Jeff Koons</p>
+          <p onclick="openCategoryWindow('nft_collections')">NFT-коллекции</p>
+          <p onclick="openCategoryWindow('icons_antique')">Иконы и антиквариат</p>
+          <p onclick="openCategoryWindow('investment_masterpieces')">Инвестиционные шедевры</p>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<section id="contact">
+  <section id="contact">
     <h2>Контакты</h2>
     <p>WhatsApp: <a href="https://wa.me/77763911177" style="color:gold">+7 776 391 11 77</a></p>
     <p>Telegram: <a href="https://t.me/THEBEST_LV" style="color:gold">@THEBEST_LV</a></p>
     <p>Instagram: <a href="https://instagram.com/VITALIY_LYAPUNOV_" style="color:gold">@VITALIY_LYAPUNOV_</a></p>
     <p>YouTube: <a href="https://youtube.com/@thebestrusboss" style="color:gold">@thebestrusboss</a></p>
-</section>
+  </section>
 
-<footer>
+  <footer>
     &copy; 2025 ГОД ЛУЧШИЙ. Все права защищены.
-</footer>
+  </footer>
 </body>
 </html>
